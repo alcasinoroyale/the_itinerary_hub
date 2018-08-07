@@ -10,7 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_08_07_031755) do
+ActiveRecord::Schema.define(version: 2018_08_07_031956) do
+
+  create_table "itineraries", force: :cascade do |t|
+    t.string "destinations"
+    t.text "travel_guide"
+    t.integer "user_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "username"

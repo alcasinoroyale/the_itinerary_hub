@@ -4,38 +4,39 @@ class UsersController < ApplicationController
   use Rack::Flash
 
   get '/signup' do
-    if logged_in?
-      redirect 'itineraries'
-    else
+    if !logged_in?
       erb :'users/create_user'
-    end
-  end
-
-  post '/signup' do
-    user = User.new(params)
-    if user.save
-      session[:user_id] = user.id
-      redirect '/itineraries'
     else
       redirect '/'
     end
   end
 
+  post '/signup' do
+    if params[:username] == "" || params[:password] == ""
+      redirect '/signup'
+      else
+        @user = User.new(username: params[:username], email: params[:email], password: params[:password])
+        @user.save
+        session[:user_id] = user.id
+        redirect to "/users/#{@user.slug}"
+    end
+  end
+
   get '/login' do
-    if logged_in?
-      redirect '/itineraries'
-    else
+    if !logged_in?
       erb :'/users/login'
+    else
+      redirect to '/'
     end
   end
 
   post '/login' do
-    user = User.find_By(username: params[:username])
-    if user && user.authenticate(params[:password])
-      session[:user_id] = user.id
+    @user = User.find_By(username: params[:username])
+    if @user && @user.authenticate(params[:password])
+      session[:user_id] = @user.id
       @user = current_user
       flash[:message] = "Welcome Back to the Itinerary Hub, #{@user.username}!"
-      redirect '/itineraries'
+      redirect '/users/show'
     else
       flash[:message] = "The username or password that you entered is incorrect."
       redirect '/login'
@@ -43,7 +44,10 @@ class UsersController < ApplicationController
   end
 
   get '/logout' do
-    session.destroy
-    redirect '/login'
+    if logged_in?
+      session.destroy
+      redirect '/login'
+    else
+      redirect to '/'
   end
 end

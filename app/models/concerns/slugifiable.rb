@@ -1,4 +1,4 @@
-module Slugify
+module Slugifiable
     module ClassMethods
       def find_by_slug(slug)
         self.all.find{|username| username.slug == slug}
@@ -10,4 +10,4 @@ module Slugify
         self.username.downcase.gsub(" ", "-")
       end
     end
-end
+  end

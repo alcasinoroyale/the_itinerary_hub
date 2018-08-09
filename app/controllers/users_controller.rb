@@ -14,7 +14,7 @@ class UsersController < ApplicationController
   post '/signup' do
     active_user = User.find_by(email: params[:email])
     if params[:username] == "" || params[:password] == ""
-      redirect '/signup'
+      redirect to '/users/create_user'
       else
         @user = User.new(username: params[:username], email: params[:email], password: params[:password])
         @user.save
@@ -39,14 +39,14 @@ class UsersController < ApplicationController
       redirect to '/users/show'
     else
       flash[:message] = "The username or password that you entered is incorrect."
-      redirect to '/login'
+      redirect to '/users/login'
     end
   end
 
   get '/logout' do
     if logged_in?
       session.destroy
-      redirect '/login'
+      redirect to '/users/login'
     else
       redirect to '/'
     end

@@ -1,3 +1,4 @@
-<a href="/itineraries/index">My Itineraries</a><br>
-<a href="/itineraries/create_itinerary">Create an Itinerary</a><br>
-<a href="/logout">Log Out</a>
+<p>Take a look at your Itineraries, <%= @user.username %>
+<% @user.itineraries.each do |itinerary| %>
+<% end %>
+<br><a href="/">Home</a>

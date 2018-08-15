@@ -7,19 +7,20 @@
   </head>
     <body>
       <div class="container">
-        <h2>Welcome to the Itinerary Hub</h2>
+        <h1>Welcome to the Itinerary Hub!</h1>
       </div>
         <nav>
         <% if logged_in? %>
         <p>Welcome, <%= current_user.username %></p>
-            <a href="/"> Home </a>
-            <a href="/itineraries/new"> Create an Itinerary </a>
-            <a href="/itineraries"> Access Current Itineraries </a>
-            <a href="/logout" > Log Out </a>
-        <% end %>
+            <a href="/">Home</a><br>
+            <a href="/itineraries/new">Create an Itinerary</a><br>
+            <a href="/itineraries">Access Current Itineraries</a><br>
+            <a href="/logout">Log Out</a>
       </nav>
-    <div class="container-fluid">
+      <div class="container">
+          <h4>Itinerary Hub</h4>
+      </div>
+      <% end %>
       <%= yield %>
-    </div>
   </body>
 </html>

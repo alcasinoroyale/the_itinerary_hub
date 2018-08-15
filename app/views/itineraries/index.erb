@@ -1,0 +1,6 @@
+<h2>Here are your Itineraries</h2>
+<% @itineraries.each do |itinerary| %>
+  <p>Destinations: <%= itinerary.destinations %><p>
+  <p>Travel Guide: <%= itinerary.travel_guide %><p>
+  <p>Schedule: <%= itinerary.schedule %></p>
+<% end %>

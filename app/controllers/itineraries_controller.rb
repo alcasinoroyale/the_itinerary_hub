@@ -21,7 +21,7 @@ class ItinerariesController < ApplicationController
     if params[:itinerary] == ""
       erb :'itineraries/new'
     else
-      @itinerary = current_user.itinerary.build(params)
+      @itinerary = current_user.itineraries.build(params)
       @itinerary.user = current_user
       @itinerary.save
       redirect to "/itineraries/#{@itinerary.id}"
@@ -30,7 +30,7 @@ class ItinerariesController < ApplicationController
 
   get '/itineraries/:id' do
     if logged_in?
-      if @itinerary = current_user.itinerary.find_by(id: params[:id])
+      if @itinerary = current_user.itineraries.find_by(id: params[:id])
         erb :'itineraries/edit'
       else
         flash[:message] = "You only have the ability to edit your itineraries."

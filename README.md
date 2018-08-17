@@ -15,8 +15,8 @@ The Itinerary Hub is a Sinatra app that gives users the ability to create an iti
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/alcasinoroyale/the_itinerary_hub. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the <a href="http://contributor-covenant.org">Contributor Covenant</a>" code of conduct.
+Bug reports and pull requests are welcome on GitHub at https://github.com/alcasinoroyale/the_itinerary_hub. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the <a href="http://contributor-covenant.org">Contributor Covenant</a> code of conduct.
 
 ## License
 
-The app is available as open source under the terms of the <a href="https://opensource.org/licenses/MIT">MIT License</a>" respectively.
+The app is available as open source under the terms of the <a href="https://opensource.org/licenses/MIT">MIT License</a> respectively.

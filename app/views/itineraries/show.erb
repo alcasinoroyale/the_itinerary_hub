@@ -1,0 +1,13 @@
+<h4>Take a look at your Itineary</h4>
+<p>Destinations: <%= itinerary.destinations %><p>
+<p>Travel Guide: <%= itinerary.travel_guide %><p>
+<p>Schedule: <%= itinerary.schedule %></p>
+
+<form action="/itineraries/<%= itinerary.id %>/edit">
+  <input type="submit" value="Edit Itinerary">
+</form>
+
+<form method="POST" action="/itineraries/<%= itinerary.id %>/delete">
+  <input type="hidden" id="hidden" name="_method" value="DELETE">
+  <input type="submit" value="Delete Itinerary">
+</form>

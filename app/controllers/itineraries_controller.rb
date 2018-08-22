@@ -55,10 +55,16 @@ class ItinerariesController < ApplicationController
   end
 
   patch '/itineraries/:id' do
-
+    @itinerary = Itinerary.find_by(:id params[:id])
+    if logged_in? && current_user.itineraries.include?(@itinerary)
+      erb :'/itineraries/edit'
+    else
+      flash[:message] = "You do not have access to other users itineraries."
+      redirect to '/itineraries'
+    end
   end
 
   delete 'itineraries/:id/delete' do
-    
+
   end
 end

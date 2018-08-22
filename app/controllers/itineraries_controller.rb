@@ -30,6 +30,19 @@ class ItinerariesController < ApplicationController
 
   get '/itineraries/:id' do
     if logged_in?
+      if @itinerary = Itinerary.find_by(id: params[:id])
+        erb :'/itineraries/show'
+      else
+        redirect to '/itineraries'
+      end
+    else
+      redirect to '/login'
+    end
+  end
+  
+  end
+  get '/itineraries/:id/edit' do
+    if logged_in?
       if @itinerary = current_user.itineraries.find_by(id: params[:id])
         erb :'itineraries/edit'
       else

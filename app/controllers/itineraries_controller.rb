@@ -39,7 +39,7 @@ class ItinerariesController < ApplicationController
       redirect to '/login'
     end
   end
-  
+
   end
   get '/itineraries/:id/edit' do
     if logged_in?
@@ -52,5 +52,13 @@ class ItinerariesController < ApplicationController
     else
       redirect to '/login'
     end
+  end
+
+  patch '/itineraries/:id' do
+
+  end
+
+  delete 'itineraries/:id/delete' do
+    
   end
 end

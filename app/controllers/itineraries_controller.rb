@@ -55,9 +55,13 @@ class ItinerariesController < ApplicationController
   end
 
   patch '/itineraries/:id' do
-    @itinerary = Itinerary.find_by(:id params[:id])
-    if logged_in? && current_user.itineraries.include?(@itinerary)
-      erb :'/itineraries/edit'
+    @itinerary = current_user.itineraries.find_by(:id params[:id])
+    if @itinerary
+      if @itinerary.update(params)
+        redirect to "/itineraries/#{@itinerary.id}"
+      else
+        erb :'/itineraries/edit'
+      end
     else
       flash[:message] = "You do not have access to other users itineraries."
       redirect to '/itineraries'

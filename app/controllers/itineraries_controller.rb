@@ -43,8 +43,9 @@ class ItinerariesController < ApplicationController
   end
   get '/itineraries/:id/edit' do
     if logged_in?
-      if @itinerary = current_user.itineraries.find_by(id: params[:id])
-        erb :'itineraries/edit'
+      @itinerary = Itinerary.find_by(id: params[:id])
+      if @itinerary && @itinerary.user == current_user
+        erb :'/itineraries/edit'
       else
         flash[:message] = "You only have the ability to edit your itineraries."
         redirect to '/itineraries'
@@ -55,9 +56,9 @@ class ItinerariesController < ApplicationController
   end
 
   patch '/itineraries/:id' do
-    @itinerary = current_user.itineraries.find_by(id: params[:id])
-    if @itinerary
-      if @itinerary.update(params)
+    @itinerary = Itinerary.find_by(id: params[:id])
+    if @itinerary && @itinerary.user == current_user
+      if @itinerary.update(destinations: params[:destionations], travel_guide: params[:travel_guide], schedule: params[:schedule])
         redirect to "/itineraries/#{@itinerary.id}"
       else
         erb :'/itineraries/edit'
@@ -68,13 +69,15 @@ class ItinerariesController < ApplicationController
     end
   end
 
-  delete 'itineraries/:id/delete' do
+  delete '/itineraries/:id/delete' do
     if logged_in?
-      @itinerary = current_user.itineraries.find_by(id: params[:id])
-      @itinerary.delete
+      @itinerary = Itinerary.find_by(id: params[:id])
+      if @itinerary && @itinerary.user == current_user
+        @itinerary.delete
       redirect to '/itineraries'
     else
       flash[:message] = "You can only delete your own itineraries."
       redirect to '/itineraries'
     end
   end
+end

@@ -55,7 +55,7 @@ class ItinerariesController < ApplicationController
   end
 
   patch '/itineraries/:id' do
-    @itinerary = current_user.itineraries.find_by(:id params[:id])
+    @itinerary = current_user.itineraries.find_by(id: params[:id])
     if @itinerary
       if @itinerary.update(params)
         redirect to "/itineraries/#{@itinerary.id}"
@@ -70,13 +70,11 @@ class ItinerariesController < ApplicationController
 
   delete 'itineraries/:id/delete' do
     if logged_in?
-      @itinerary = current_user.itineraries.find_by(:id params[:id])
+      @itinerary = current_user.itineraries.find_by(id: params[:id])
       @itinerary.delete
       redirect to '/itineraries'
     else
       flash[:message] = "You can only delete your own itineraries."
       redirect to '/itineraries'
     end
-    end
   end
-end

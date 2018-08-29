@@ -1,4 +1,4 @@
-<h2>Here are your Itineraries</h2>
+<h2>Here are your Itineraries, <%= current_user.username %></h2>
 <% @itineraries.each do |itinerary| %>
   <p>Destinations: <%= itinerary.destinations %><p>
   <p>Travel Guide: <%= itinerary.travel_guide %><p>

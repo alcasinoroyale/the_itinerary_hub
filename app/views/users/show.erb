@@ -1,3 +1,4 @@
 <p>Take a look at your Itineraries, <%= current_user.username %>
 <% current_user.itineraries.each do |itinerary| %>
+  <p><a href="/itineraries/<%=itinerary.id%>"><%= itinerary.destinations%></a></p>
 <% end %>

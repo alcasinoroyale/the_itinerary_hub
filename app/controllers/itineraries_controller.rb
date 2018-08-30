@@ -68,7 +68,7 @@ class ItinerariesController < ApplicationController
     if logged_in?
       @itinerary = Itinerary.find_by(id: params[:id])
       if @itinerary && @itinerary.user == current_user
-        @itinerary.delete
+        @itinerary = Itinerary.delete(params[:id])
       redirect to '/itineraries/'
     else
       flash[:notice] = "You can only delete your own itineraries."

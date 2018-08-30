@@ -12,7 +12,7 @@
         <nav>
         <% if logged_in? %>
         <p>Welcome, <%= current_user.username %></p>
-            <a href="/">Home</a><br>
+            <a href="/users/show">Home</a><br>
             <a href="/itineraries/new">Create an Itinerary</a><br>
             <a href="/itineraries">Access Current Itineraries</a><br>
             <a href="/logout">Log Out</a>

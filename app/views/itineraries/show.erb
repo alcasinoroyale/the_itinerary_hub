@@ -4,11 +4,11 @@
 <p>Schedule: <%= @itinerary.schedule %></p>
 
 <a href="/itineraries/<%=@itinerary.id%>/edit">Edit Itinerary</a>
-<form method="GET" action="/itineraries/<%=@itinerary.id%>/edit">
+<form action="/itineraries/<%=@itinerary.id%>">
   <input type="submit" value="Edit Itinerary">
 </form>
 
-<form method="POST" action="/itineraries/<%=@itinerary.id%>/delete">
+<form action="/itineraries/<%=@itinerary.id%>/delete" method="POST">
   <input type="hidden" id="hidden" name="_method" value="DELETE">
   <input type="submit" value="Delete Itinerary">
 </form>

@@ -1,7 +1,6 @@
 class ItinerariesController < ApplicationController
   get '/itineraries' do #reading all of the itineraries
       if logged_in?
-        @user = current_user
         @itineraries = Itinerary.all
         erb :'/itineraries/index'
       else
@@ -43,43 +42,36 @@ class ItinerariesController < ApplicationController
   end
 
   get '/itineraries/:id/edit' do
-    if logged_in?
-      @itinerary = Itinerary.find_by(params[:id])
-      if @itinerary && @itinerary.user == current_user
-        erb :'/itineraries/edit'
-      else
-        flash[:message] = "You only have the ability to edit your itineraries."
-        redirect to '/itineraries'
-      end
+    @itinerary = Itinerary.find_by(id: params[:id])
+    if logged_in? && current_user.itineraries.include?(@itinerary)
+        erb :'itineraries/edit'
     else
-      redirect to '/login'
+      flash[:message] = "You only have the ability to edit your itineraries."
+      redirect to '/itineraries'
     end
   end
 
-  post '/itineraries/:id' do
-    @itinerary = Itinerary.find_by(params[:id])
-    if @itinerary && @itinerary.user == current_user
-      if @itinerary.update(destinations: params[:destionations], travel_guide: params[:travel_guide], schedule: params[:schedule])
+  patch '/itineraries/:id' do
+    @itinerary = current_user.itineraries.find_by(id: params[:id])
+      if params[:itinerary] != ""
+        @itinerary.update(destinations: params[:destinations], travel_guide: params[:travel_guide], schedule: params[:schedule])
         redirect to "/itineraries/#{@itinerary.id}"
+      elsif
+        redirect to "/itineraries/#{@itinerary.id}/edit"
       else
-        erb :'/itineraries/edit'
-      end
-    else
-      flash[:message] = "You do not have access to other users itineraries."
-      redirect to '/itineraries'
+        flash[:message] = "You do not have access to other users itineraries."
+        redirect to '/itineraries'
     end
   end
 
   delete '/itineraries/:id/delete' do
     if logged_in?
-      @itinerary = Itinerary.find_by(params[:id])
-      @itinerary.user = current_user
-      if @itinerary && @itinerary.user_id == @user.id
+      @itinerary = Itinerary.find_by(id: params[:id])
+      if @itinerary && @itinerary.user == current_user
         @itinerary.delete
-        @itinerary.destroy
       redirect to '/itineraries/'
     else
-      flash[:message] = "You can only delete your own itineraries."
+      flash[:notice] = "You can only delete your own itineraries."
       redirect to '/itineraries'
     end
   end

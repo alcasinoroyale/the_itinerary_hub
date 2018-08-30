@@ -1,7 +1,7 @@
 <h3>Edit Your Itineraries</h3>
 
-<form method="POST" action="/itineraries/ <%= @itinerary.id %>">
-  <input type="hidden" name="_method" value="PATCH" id="hidden">
+<form method="POST" action="/itineraries/<%=@itinerary.id%>">
+  <input id="hidden" type="hidden" name="_method" value="PATCH">
   <label for="destinations">Destinations</label>
   <input type="text" name="destinations" id="destinations" value="<%= @itinerary.destinations %>"><br>
 
@@ -11,5 +11,5 @@
   <label for="schedule">Schedule</label>
   <input type="text" name="schedule" id="schedule" value="<%= @itinerary.schedule %>"><br>
 
-  <input type="submit" value="Edit Itinerary">
+  <input type="submit" value="submit">
 </form>

@@ -1,3 +1,4 @@
+require 'rack-flash'
 class ItinerariesController < ApplicationController
   get '/itineraries' do #reading all of the itineraries
       if logged_in?
@@ -39,12 +40,10 @@ class ItinerariesController < ApplicationController
     end
   end
 
-  end
-
   get '/itineraries/:id/edit' do
     @itinerary = Itinerary.find_by(id: params[:id])
     if logged_in? && current_user.itineraries.include?(@itinerary)
-        erb :'itineraries/edit'
+        erb :'/itineraries/edit'
     else
       flash[:message] = "You only have the ability to edit your itineraries."
       redirect to '/itineraries'
@@ -68,11 +67,12 @@ class ItinerariesController < ApplicationController
     if logged_in?
       @itinerary = Itinerary.find_by(id: params[:id])
       if @itinerary && @itinerary.user == current_user
-        @itinerary = Itinerary.delete(params[:id])
-      redirect to '/itineraries/'
-    else
-      flash[:notice] = "You can only delete your own itineraries."
-      redirect to '/itineraries'
+        @itinerary.destroy
+        redirect to '/itineraries/'
+      else
+        flash[:message] = "You cannot delete other users itineraries"
+        redirect to '/itineraries/'
     end
   end
+end
 end

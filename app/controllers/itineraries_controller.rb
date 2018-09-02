@@ -40,7 +40,7 @@ class ItinerariesController < ApplicationController
     end
   end
 
-  get '/itineraries/:id/edit' do
+  get '/itineraries/:id/edit' do #Edit an Itinerary
     @itinerary = Itinerary.find_by(id: params[:id])
     if logged_in? && current_user.itineraries.include?(@itinerary)
         erb :'/itineraries/edit'
@@ -63,7 +63,7 @@ class ItinerariesController < ApplicationController
     end
   end
 
-  delete '/itineraries/:id/delete' do
+  delete '/itineraries/:id/delete' do #Delete an Itinerary
     if logged_in?
       @itinerary = Itinerary.find_by(id: params[:id])
       if @itinerary && @itinerary.user == current_user

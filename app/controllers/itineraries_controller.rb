@@ -68,9 +68,10 @@ class ItinerariesController < ApplicationController
       @itinerary = Itinerary.find_by(id: params[:id])
       if @itinerary && @itinerary.user == current_user
         @itinerary.destroy
-        redirect to '/itineraries/'
+        flash[:message] = "Your itinerary has been successfully deleted."
+        redirect to '/itineraries'
       else
-        flash[:message] = "You cannot delete other users itineraries"
+        flash[:message] = "You cannot delete other users itineraries."
         redirect to '/itineraries/'
     end
   end

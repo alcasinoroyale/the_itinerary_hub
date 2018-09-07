@@ -6,6 +6,15 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" />
   </head>
     <body>
+
+    <div class="wrapper">
+      <% if flash.has?(:message) %>
+        <div class="alert alert-primary" role="alert">
+          <%= flash[:message] %>
+        </div>
+      <% end %>
+    </div>
+
       <div class="container">
         <h1>Welcome to the Itinerary Hub!</h1>
       </div>
@@ -14,7 +23,7 @@
         <p>Welcome, <%= current_user.username %></p>
             <a href="/users/show">Home</a><br>
             <a href="/itineraries/new">Create an Itinerary</a><br>
-            <a href="/itineraries">Access Current Itineraries</a><br>
+            <a href="/itineraries">Access All Itineraries</a><br>
             <a href="/logout">Log Out</a>
       </nav>
       <div class="container">

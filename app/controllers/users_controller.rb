@@ -19,6 +19,7 @@ class UsersController < ApplicationController
         @user = User.new(username: params[:username], email: params[:email], password: params[:password])
         @user.save
         session[:user_id] = @user.id
+        flash[:message] = "User created successfully."
         redirect to "/users/#{@user.slug}"
     end
   end
@@ -35,10 +36,10 @@ class UsersController < ApplicationController
     @user = User.find_by(username: params[:username])
     if @user && @user.authenticate(params[:password])
       session[:user_id] = @user.id
-      flash[:notice] = "Welcome Back to the Itinerary Hub, #{@user.username}!"
+      flash[:message] = "Welcome Back to the Itinerary Hub, #{@user.username}!"
       redirect to '/users/show'
     else
-      flash[:notice] = "The username or password that you entered is incorrect."
+      flash[:message] = "The username or password that you entered is incorrect."
       redirect to '/users/login'
     end
   end

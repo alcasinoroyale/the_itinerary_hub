@@ -12,15 +12,16 @@ class UsersController < ApplicationController
   end
 
   post '/signup' do
-    active_user = User.find_by(email: params[:email])
-    if params[:username] == "" || params[:password] == ""
-      redirect to '/users/create_user'
-      else
-        @user = User.new(username: params[:username], email: params[:email], password: params[:password])
-        @user.save
+    @user = User.new(username: params[:username], email: params[:email], password: params[:password])
+      if params[:username] == "" || params[:password] == ""
+        redirect to '/users/create_user'
+      elsif @user.save
         session[:user_id] = @user.id
         flash[:message] = "User created successfully."
         redirect to "/users/#{@user.slug}"
+      else
+        flash[:message] = "This user info already exists"
+        redirect to 'users/create_user'
     end
   end
 

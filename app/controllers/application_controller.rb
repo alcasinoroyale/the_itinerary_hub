@@ -25,6 +25,10 @@ class ApplicationController < Sinatra::Base
      end
 
      def redirect_if_not_logged_in
-       @current_user == !logged_in && session[:user_id] == !@user.id
+       if !logged_in?
+       flash[:message] = "You cannot access this page because you are already logged out."
+       redirect to '/users/login'
+     end
+     end
    end
  end

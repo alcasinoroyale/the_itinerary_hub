@@ -10,10 +10,9 @@ class ItinerariesController < ApplicationController
   end
 
   get '/itineraries/new' do #create an Itinerary
-      if logged_in?
-        erb :'itineraries/new'
-      else
-        redirect to '/login'
+      redirect_if_not_logged_in
+      flash[:message] = "You cannot access this page because you are already logged out."
+      erb :'itineraries/new'
     end
   end
 

@@ -28,7 +28,7 @@ class ApplicationController < Sinatra::Base
        if !logged_in?
        flash[:message] = "You cannot access this page because you are already logged out."
        redirect to '/users/login'
-     end
+      end
      end
    end
  end

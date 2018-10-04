@@ -1,16 +1,12 @@
 require 'rack-flash'
 class ItinerariesController < ApplicationController
   get '/itineraries' do #reading all of the itineraries
-      if logged_in?
-        @itineraries = Itinerary.all
-        erb :'/itineraries/index'
-      else
-        redirect to '/login'
-    end
+    redirect_if_not_logged_in
+    erb :'/itineraries/index'
   end
 
   get '/itineraries/new' do #create an Itinerary
-      redirect_if_not_logged_in 
+      redirect_if_not_logged_in
       erb :'itineraries/new'
   end
 
@@ -26,14 +22,11 @@ class ItinerariesController < ApplicationController
   end
 
   get '/itineraries/:id' do
-    if logged_in?
+    redirect_if_not_logged_in
       if @itinerary = Itinerary.find_by(id: params[:id])
         erb :'/itineraries/show'
       else
         redirect to '/itineraries'
-      end
-    else
-      redirect to '/login'
     end
   end
 

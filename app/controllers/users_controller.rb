@@ -38,7 +38,7 @@ class UsersController < ApplicationController
     if @user && @user.authenticate(params[:password])
       session[:user_id] = @user.id
       flash[:message] = "Welcome Back to the Itinerary Hub, #{@user.username}!"
-      redirect to '/users/show'
+      redirect to "/users/#{@user.slug}"
     else
       flash[:message] = "The username or password that you entered is incorrect."
       redirect to '/users/login'

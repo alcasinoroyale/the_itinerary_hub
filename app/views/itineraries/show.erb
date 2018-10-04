@@ -1,7 +1,9 @@
-<h4>Take a look at your Itinerary</h4>
+<h4>Take a look at <%= @itinerary.user.username %>'s Itinerary</h4>
 <p>Destinations: <%= @itinerary.destinations %><p>
 <p>Travel Guide: <%= @itinerary.travel_guide %><p>
 <p>Schedule: <%= @itinerary.schedule %></p>
+
+<% if @current_user.id == @itinerary.user_id %>
 
 <form action="/itineraries/<%=@itinerary.id%>/edit" method="GET">
   <input type="submit" value="Edit Itinerary">
@@ -11,3 +13,5 @@
   <input type="hidden" id="hidden" name="_method" value="DELETE">
   <input type="submit" value="Delete Itinerary">
 </form>
+
+<% end %>

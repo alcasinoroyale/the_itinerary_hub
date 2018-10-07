@@ -1,6 +1,9 @@
-<p>Take a look at your Itineraries, <%= current_user.username %>
-  <% binding.pry %>
-  <p><%= @users.ids %></p>
+<h4>Take a look at your Itineraries, <%= current_user.username %></h4>
 <% current_user.itineraries.each do |itinerary| %>
   <p><a href="/itineraries/<%=itinerary.id%>"><%= itinerary.destinations%></a></p>
+<% end %>
+<br>
+<h4>Users that are currently on the Itinerary Hub: </h4>
+<% @users.each do |user| %>
+<h5><%= user.id %>. <%= user.username %></h5>
 <% end %>

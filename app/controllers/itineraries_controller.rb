@@ -1,6 +1,7 @@
 require 'rack-flash'
 class ItinerariesController < ApplicationController
   get '/itineraries' do #reading all of the itineraries
+    @itineraries = Itinerary.all
     redirect_if_not_logged_in
     erb :'/itineraries/index'
   end

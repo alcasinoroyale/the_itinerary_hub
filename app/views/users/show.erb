@@ -1,4 +1,6 @@
 <p>Take a look at your Itineraries, <%= current_user.username %>
+  <% binding.pry %>
+  <p><%= @users.ids %></p>
 <% current_user.itineraries.each do |itinerary| %>
   <p><a href="/itineraries/<%=itinerary.id%>"><%= itinerary.destinations%></a></p>
 <% end %>

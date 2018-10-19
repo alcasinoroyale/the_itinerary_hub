@@ -47,6 +47,7 @@ class UsersController < ApplicationController
 
   get '/users' do
     @users = User.all
+    @most_traveled_user = User.most_traveled
     redirect_if_not_logged_in
     erb :'/users/index'
   end

@@ -4,6 +4,7 @@
 <% end %>
 <br>
 <h4>Users that are currently on the Itinerary Hub: </h4>
+<%= @most_traveled_user.username %> - <%= @most_traveled_user.trip_count %><br>
 <% @users.each do |user| %>
-<h5><%= user.id %>. <%= user.username %></h5>
+<h5><%= user.id %>. <%= user.username %> - Trip Count: <%= user.trip_count %> </h5>
 <% end %>

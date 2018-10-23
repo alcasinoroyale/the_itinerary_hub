@@ -12,7 +12,7 @@ class UsersController < ApplicationController
   end
 
   post '/signup' do
-    @user = User.new(username: params[:username], email: params[:email], password: params[:password])
+    @user = User.new(username: params[:username], email: params[:email], hometown: params[:hometown], favorite_destination: params[:favorite_destination], password: params[:password])
       if params[:username] == "" || params[:password] == ""
         redirect to '/users/create_user'
       elsif @user.save

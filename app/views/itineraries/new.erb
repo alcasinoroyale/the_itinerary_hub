@@ -1,13 +1,14 @@
 <h2>Create a new Itinerary</h2>
-<form method="POST" action="/itineraries">
-<label for="destinations">Destinations:</label><br>
-<input type="text" name="destinations" id="destinations"><br>
 
-<label for="travel_guide">Travel Guide:</label><br>
-<input type="text" name="travel_guide" id="travel_guide"><br>
+  <form method="POST" action="/itineraries">
+    <label for="destinations">Destinations:</label><br>
+    <input type="text" name="destinations" id="destinations" placeholder="What places are you traveling to?"><br>
+    <br>
+    <label for="travel_guide">Travel Guide:</label><br>
+    <input type="text" name="travel_guide" id="travel_guide" placeholder="How do you plan to get there?"><br>
+    <br>
+    <label for="schedule">Schedule:</label><br>
+    <input type="text" name="schedule" id="schedule" placeholder="For how many days is your trip?"><br><br>
 
-<label for="schedule">Schedule:</label><br>
-<input type="text" name="schedule" id="schedule"><br><br>
-
-<input type="submit" value="Create Itinerary">
-</form>
+    <input type="submit" value="Create Itinerary">
+  </form>

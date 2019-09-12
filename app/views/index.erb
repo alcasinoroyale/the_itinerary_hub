@@ -1,10 +1,17 @@
 <div class="container">
   <h4>Your adventure starts here! Create an Itinerary and you will have all of your travel plans organized in one place.</h4>
 </div>
-    <p>This website allows travelers and sightseers to create multiple itineraries for their upcoming trips and getaways. Users can add the destinations, a detailed traveled guide, and the schedule for each of their itineraries. If you access the index page, you will be able to view all of the itineraries stored in the site's database.</p>
 
+<div class="description">
+    <img src="/images/croatiabridge.jpg" />
+    <p>This website allows travelers and sightseers to create multiple itineraries for their upcoming trips and getaways. Users can add the destinations, a detailed traveled guide, and the schedule for each of their itineraries. If you access the index page, you will be able to view all of the itineraries stored in the site's database.</p>
+</div>
+
+<% if !logged_in? %>
+<div class="account">
   <h3>
-  <a href="/signup">Sign Up</a>
-  <br><br>
-  <a href="/login">Log In</a>
+    <a href="/signup">Sign Up</a>
+    <a href="/login">Log In</a>
   </h3>
+</div>
+<% end %>

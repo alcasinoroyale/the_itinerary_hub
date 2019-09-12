@@ -3,7 +3,8 @@
   <head>
     <meta charset="utf-8">
     <title>The Itinerary Hub</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="/stylesheets/application.css" />
+    <link href="https://fonts.googleapis.com/css?family=Roboto:500&display=swap" rel="stylesheet">
   </head>
     <body>
 
@@ -18,17 +19,16 @@
       <div class="container">
         <h1>Welcome to the Itinerary Hub!</h1>
       </div>
-        <nav>
+
+      <nav>
         <% if logged_in? %>
-        <p>Welcome, <%= current_user.username %></p>
+        <h4>Welcome, <%= current_user.username %></h4>
             <a href="/users">Home</a><br>
             <a href="/itineraries/new">Create an Itinerary</a><br>
             <a href="/itineraries">Access All Itineraries</a><br>
             <a href="/logout">Log Out</a>
       </nav>
-      <div class="container">
-          <h4>Itinerary Hub</h4>
-      </div>
+
       <% end %>
       <%= yield %>
   </body>

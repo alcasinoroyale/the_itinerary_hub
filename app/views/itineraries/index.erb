@@ -1,7 +1,9 @@
 <h3>Here are all the Itineraries on the Itinerary Hub</h3>
+<div class="itinerary-list">
 <% @itineraries.each do |itinerary| %>
-  <h4><a href="/itineraries/<%= itinerary.id %>"><%=itinerary.destinations%></a></h4>
+  <h3><a href="/itineraries/<%= itinerary.id %>"><%=itinerary.destinations%></a></h3>
   <p>Itinerary User: <a href="/users/<%= itinerary.user.slug %>"><%= itinerary.user.username %></a></p>
   <p>Travel Guide: <%= itinerary.travel_guide %></p>
   <p>Schedule: <%= itinerary.schedule %></p>
 <% end %>
+</div>

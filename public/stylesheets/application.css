@@ -28,3 +28,7 @@ body {
   margin-left: 20px;
   font-family: 'Roboto', sans-serif;
 }
+
+.itinerary-box {
+  width: 180px;
+}

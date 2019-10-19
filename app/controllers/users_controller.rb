@@ -68,4 +68,21 @@ class UsersController < ApplicationController
       redirect '/'
     end
   end
+
+
+  get '/users/:slug/edit' do
+    if logged_in? && current_user
+      @user = User.find_by_slug(params[:slug])
+      erb :'/users/edit'
+    else
+      redirect to '/users/show'
+    end
+  end
+
+
+  patch '/users/:slug' do
+    @user = User.find_by_slug(params[:slug])
+    @user.update(username: params[:username])
+    redirect to '/users'
+  end
 end

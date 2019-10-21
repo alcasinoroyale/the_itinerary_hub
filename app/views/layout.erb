@@ -25,6 +25,7 @@
         <h4>Welcome, <%= current_user.username %></h4>
             <a href="/users">Home</a><br>
             <a href="/itineraries/new">Create an Itinerary</a><br>
+            <a href="/users/<%= current_user.slug %>">Profile Page</a><br>
             <a href="/itineraries">Access All Itineraries</a><br>
             <a href="/logout">Log Out</a>
       </nav>

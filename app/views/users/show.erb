@@ -3,11 +3,10 @@
   <p><a href="/itineraries/<%=itinerary.id%>"><%= itinerary.destinations%></a></p>
 <% end %>
 
-
 <% if @current_user.id == @user.id %>
 
 <form action="/users/<%=@user.slug%>/edit" method="GET">
-  <input type="submit" value="Edit User">
+  <input type="submit" value="Change Username">
 </form>
 
 <% end %>

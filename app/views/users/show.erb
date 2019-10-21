@@ -1,3 +1,5 @@
+<h3><%= @current_user.username %>'s profile</h3>
+
 <h4>Take a look at <%= @user.username %>'s itineraries</h4>
   <% @user.itineraries.each do |itinerary| %>
   <p><a href="/itineraries/<%=itinerary.id%>"><%= itinerary.destinations%></a></p>

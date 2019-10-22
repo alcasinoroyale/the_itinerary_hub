@@ -12,8 +12,9 @@ class ItinerariesController < ApplicationController
   end
 
   post '/itineraries' do
-    if params[:itinerary] == ""
-      erb :'itineraries/new'
+    if params[:itinerary] == nil || params[:itinerary] == ""
+      flash[:message] = "The itinerary wasn't created."
+      redirect to "/itineraries"
     else
       @itinerary = current_user.itineraries.build(params)
       @itinerary.user = current_user
@@ -63,7 +64,7 @@ class ItinerariesController < ApplicationController
         redirect to '/itineraries'
       else
         flash[:message] = "You cannot delete other users itineraries."
-        redirect to '/itineraries/'
+        redirect to '/itineraries'
     end
   end
 end

@@ -1,14 +1,20 @@
 <h2>Create a new Itinerary</h2>
-
   <form method="POST" action="/itineraries">
-    <label for="destinations">Destinations:</label><br>
-    <input type="text" name="destinations" id="destinations" class="itinerary-box" placeholder="What places are you traveling to?"><br>
-    <br>
-    <label for="travel_guide">Travel Guide:</label><br>
-    <input type="text" name="travel_guide" id="travel_guide" class="itinerary-box" placeholder="How do you plan to get there?"><br>
-    <br>
-    <label for="schedule">Schedule:</label><br>
-    <input type="text" name="schedule" id="schedule" class="itinerary-box" placeholder="How many days is your trip?"><br><br>
+
+    <i class='fas fa-suitcase' style='font-size:24px'></i><br>
+    <p><label for="destinations">Destinations:</label><br>
+    <input type="text" name="destinations" id="destinations" class="itinerary-box" placeholder="What places are you traveling to?">
+    </p><br>
+
+    <i class='fas fa-map-marked' style='font-size:24px'></i>
+    <p><label for="travel_guide">Travel Guide:</label><br>
+    <input type="text" name="travel_guide" id="travel_guide" class="itinerary-box" placeholder="How do you plan to get there?">
+    </p><br>
+
+    <i class='fas fa-calendar-alt' style='font-size:24px'></i>
+    <p><label for="schedule">Schedule:</label><br>
+    <input type="text" name="schedule" id="schedule" class="itinerary-box" placeholder="How many days is your trip?">
+    </p><br>
 
     <input type="submit" value="Create Itinerary">
   </form>

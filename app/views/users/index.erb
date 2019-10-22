@@ -6,7 +6,18 @@
 <h3>Most Traveled User:</h3>
 <p><%= @most_traveled_user.username %> - <%= @most_traveled_user.trip_count %> Trips</p>
 
-<h3>Users that are currently on the Itinerary Hub: </h3>
-<% @users.each do |user| %>
-<h4><%= user.id %>. <%= user.username %> - Trip Count: <%= user.trip_count %> </h4>
-<% end %>
+<h2>Users on The Itinerary Hub</h2>
+<table border="1" style="width: 30%;">
+  <tr>
+    <th>User ID</th>
+    <th>Username</th>
+    <th>Trip Count</th>
+  </tr>
+    <% @users.each do |user| %>
+      <tr>
+        <td><%= user.id %></td>
+        <td><%= user.username %></td>
+        <td><%= user.trip_count %></td>
+      </tr>
+    <% end %>
+</table>

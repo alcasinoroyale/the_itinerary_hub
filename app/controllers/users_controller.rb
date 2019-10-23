@@ -81,7 +81,7 @@ class UsersController < ApplicationController
 
   patch '/users/:slug' do
     @user = User.find_by_slug(params[:slug])
-    @user.update(username: params[:username])
+    @user.update(username: params[:username], password: params[:password])
     redirect to '/users'
   end
 end

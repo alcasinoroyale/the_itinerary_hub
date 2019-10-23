@@ -11,6 +11,6 @@
 
 <% if @current_user.id == @user.id %>
   <form action="/users/<%=@user.slug%>/edit" method="GET">
-    <input type="submit" value="Change Username">
+    <input type="submit" value="Edit Profile">
   </form>
 <% end %>

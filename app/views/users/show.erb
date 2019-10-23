@@ -1,14 +1,16 @@
-<h3><%= @current_user.username %>'s profile</h3>
+<h3><%= @user.username %>'s profile</h3>
 
-<h4>Take a look at <%= @user.username %>'s itineraries</h4>
-  <% @user.itineraries.each do |itinerary| %>
-  <p><a href="/itineraries/<%=itinerary.id%>"><%= itinerary.destinations%></a></p>
+<% if @user.itineraries.empty? %>
+  <%= @user.username %> currently has no itineraries.
+  <% else %>
+  <h4>Take a look at <%= @user.username %>'s itineraries</h4>
+    <% @user.itineraries.each do |itinerary| %>
+    <p><a href="/itineraries/<%=itinerary.id%>"><%= itinerary.destinations%></a></p>
+  <% end %>
 <% end %>
 
 <% if @current_user.id == @user.id %>
-
-<form action="/users/<%=@user.slug%>/edit" method="GET">
-  <input type="submit" value="Change Username">
-</form>
-
+  <form action="/users/<%=@user.slug%>/edit" method="GET">
+    <input type="submit" value="Change Username">
+  </form>
 <% end %>

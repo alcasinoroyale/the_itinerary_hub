@@ -1,0 +1,77 @@
+/* Links */
+
+a {
+  color: #264E36;
+  text-decoration: none;
+}
+
+.account a {
+  padding: 10px;
+}
+
+/* Navigation */
+nav a {
+  padding: 20px;
+}
+
+nav i {
+  color: black;
+}
+
+/* Heading and Home Image */
+
+.container {
+  margin-left: 10px;
+  max-width: 500px;
+}
+
+.description {
+  max-width: 500px;
+}
+
+.description img {
+  max-width: 500px;
+}
+
+/* Text and Input */
+
+body {
+  margin-left: 20px;
+  font-family: 'Roboto', sans-serif;
+}
+
+.itinerary-box {
+  width: 180px;
+  margin-top: 10px;
+  height: 28px;
+}
+
+input[type=submit] {
+  background: #264E36;
+  color: #f5f5f5;
+  border-style: outset;
+  border-color: #264E36;
+  border-radius: 4px;
+  font-size: 14px;
+  height: 36px;
+  width: 120px;
+}
+
+.trips {
+  color: #8a8a8a;
+  font-size: 14px;
+}
+
+.login input[type="text"], input[type="password"] {
+  margin-top: 10px;
+  height: 28px;
+  font-size: 14px;
+  width: 200px;
+}
+
+.create-user input[type="text"], input[type="email"], input[type="password"] {
+  margin-top: 10px;
+  height: 28px;
+  font-size: 14px;
+  width: 200px;
+}

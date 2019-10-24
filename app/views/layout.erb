@@ -3,12 +3,11 @@
   <head>
     <meta charset="utf-8">
     <title>The Itinerary Hub</title>
-    <link rel="stylesheet" type="text/css" href="<%= url("/style.css")%>">
-    <script src='https://kit.fontawesome.com/a076d05399.js'></script>
+    <link rel="stylesheet" type="text/css" href="<%= url("/css/styles.css")%>">
     <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+    <script src='https://kit.fontawesome.com/a076d05399.js'></script>
   </head>
     <body>
-
     <div class="wrapper">
       <% if flash.has?(:message) %>
         <div class="alert alert-primary" role="alert">
@@ -31,7 +30,7 @@
         <% end %>
       </nav>
 
-      <%= yield %>
+        <%= yield %>
 
   </body>
 </html>

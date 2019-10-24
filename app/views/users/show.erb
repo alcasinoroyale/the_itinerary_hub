@@ -1,5 +1,8 @@
 <h3><%= @user.username %>'s profile</h3>
 
+<p class="trips">ITINERARIES</p>
+<%= @user.trip_count %>
+
 <% if @user.itineraries.empty? %>
   <%= @user.username %> currently has no itineraries.
   <% else %>

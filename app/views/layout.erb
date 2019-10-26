@@ -3,11 +3,32 @@
   <head>
     <meta charset="utf-8">
     <title>The Itinerary Hub</title>
-    <link rel="stylesheet" type="text/css" href="<%= url("/css/style.css")%>">
-    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="<%= url("/css/styles.css")%>">
+    <link href="https://fonts.googleapis.com/css?family=Roboto|Avenir+Next|Avenir&display=swap" rel="stylesheet">
     <script src='https://kit.fontawesome.com/a076d05399.js'></script>
+    <link href="dist/hamburgers.css" rel="stylesheet">
   </head>
     <body>
+
+    <div class="header">
+      <div class="title">
+        <h1><a href="/">The Itinerary Hub</a></h1>
+      </div>
+        <nav>
+          <% if logged_in? %>
+              <a href="/users/<%= current_user.slug %>"> <i class="fas fa-user"></i> <%= current_user.username %></a>
+              <a href="/users">Users</a>
+              <a href="/itineraries/new">Create Itinerary</a>
+              <a href="/itineraries">Itineraries</a>
+              <a href="/logout">Log Out</a>
+          <% end %>
+        </nav>
+      </div>
+
+    <div class="content">
+        <%= yield %>
+    </div>
+
     <div class="wrapper">
       <% if flash.has?(:message) %>
         <div class="alert alert-primary" role="alert">
@@ -15,22 +36,6 @@
         </div>
       <% end %>
     </div>
-
-      <div class="container">
-        <h1><a href="/">The Itinerary Hub</a></h1>
-      </div>
-
-      <nav>
-        <% if logged_in? %>
-            <a href="/users/<%= current_user.slug %>"> <i class="fas fa-user"></i> <%= current_user.username %></a>
-            <a href="/users">Users</a>
-            <a href="/itineraries/new">Create Itinerary</a>
-            <a href="/itineraries">Itineraries</a>
-            <a href="/logout">Log Out</a>
-        <% end %>
-      </nav>
-
-        <%= yield %>
 
   </body>
 </html>

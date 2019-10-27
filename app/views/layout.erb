@@ -13,16 +13,30 @@
       <div class="title">
         <h1><a href="/">The Itinerary Hub</a></h1>
       </div>
-        <nav>
+        <div class="navigation" id="myNavMenu">
           <% if logged_in? %>
+              <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+                <i class="fa fa-bars" style="font-size:24px"></i>
+              </a>
               <a href="/users/<%= current_user.slug %>"> <i class="fas fa-user"></i> <%= current_user.username %></a>
               <a href="/users">Users</a>
               <a href="/itineraries/new">Create Itinerary</a>
               <a href="/itineraries">Itineraries</a>
               <a href="/logout">Log Out</a>
           <% end %>
-        </nav>
+        </div>
       </div>
+
+      <script>
+        function myFunction() {
+          let x = document.getElementById("myNavMenu");
+          if (x.className === "navigation") {
+            x.className += " responsive";
+          } else {
+            x.className = "navigation";
+          }
+        }
+      </script>
 
     <div class="content">
         <%= yield %>

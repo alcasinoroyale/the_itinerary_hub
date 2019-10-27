@@ -28,6 +28,14 @@ nav i {
   color: black;
 }
 
+nav:hover a {
+  opacity: 0.5;
+}
+
+nav a:hover {
+  opacity: 1;
+}
+
 .title a {
   color: #f5f5f5;
   margin-left: 40px;
@@ -46,15 +54,15 @@ nav i {
 
 .container {
   margin-left: 10px;
-  max-width: 500px;
+  max-width: 530px;
 }
 
 .description {
-  max-width: 500px;
+  max-width: 530px;
 }
 
 .description img {
-  max-width: 500px;
+  max-width: 530px;
 }
 
 /* Text and Input */
@@ -110,4 +118,18 @@ input[type=submit] {
   height: 28px;
   font-size: 14px;
   width: 200px;
+}
+
+.images {
+  float: right;
+  margin-right: 50px;
+}
+
+.images img {
+  max-width: 450px;
+  border: 4px solid white;
+}
+
+.users {
+  border: 2px solid #f8f8f8;
 }

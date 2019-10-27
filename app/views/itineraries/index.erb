@@ -1,4 +1,10 @@
 <h2>Explore All of the Itineraries</h2>
+
+<div class="images">
+  <img src="/images/nyc.jpg" />
+  <img src="/images/mountains.jpg" />
+</div>
+
 <div class="itinerary-list">
 <% @itineraries.each do |itinerary| %>
   <h3><a href="/itineraries/<%= itinerary.id %>"><%=itinerary.destinations%></a></h3>

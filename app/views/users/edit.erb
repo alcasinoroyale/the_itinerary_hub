@@ -1,13 +1,9 @@
+<div class="edit-profile">
 <h3>Edit Your Profile</h3>
-
-<form method="POST" action="/users/<%=@user.slug%>">
-  <input id="hidden" type="hidden" name="_method" value="PATCH">
-
-    <label for="Username">Username</label>
-    <input type="text" name="username" id="username" value="<%= @user.username %>"><br>
-
-    <label for="Password">Password</label>
-    <input type="password" name="password" id="password" value="<%= @user.password %>"><br>
-
-  <input type="submit" value="submit">
-</form>
+  <form method="POST" action="/users/<%=@user.slug%>">
+    <input id="hidden" type="hidden" name="_method" value="PATCH">
+      <p>Username<br><input type="text" name="username" id="username" value="<%= @user.username %>"><br></p>
+      <p>Password<br><input type="password" name="password" id="password" value="<%= @user.password %>"><br></p>
+    <input type="submit" value="submit">
+  </form>
+</div>

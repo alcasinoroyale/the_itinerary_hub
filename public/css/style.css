@@ -63,6 +63,8 @@ nav a:hover {
 
 .description img {
   max-width: 530px;
+  border: 4px solid white;
+  border-radius: 6px;
 }
 
 /* Text and Input */
@@ -106,7 +108,7 @@ input[type=submit] {
   font-size: 14px;
 }
 
-.login input[type="text"], input[type="password"] {
+.login, .edit-profile input[type="text"], input[type="password"] {
   margin-top: 10px;
   height: 28px;
   font-size: 14px;
@@ -128,6 +130,7 @@ input[type=submit] {
 .images img {
   max-width: 450px;
   border: 4px solid white;
+  border-radius: 6px;
 }
 
 .users {

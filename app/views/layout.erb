@@ -15,7 +15,7 @@
       </div>
         <div class="navigation" id="myNavMenu">
           <% if logged_in? %>
-              <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+              <a href="javascript:void(0);" class="icon" onclick="responsiveMenu()">
                 <i class="fa fa-bars" style="font-size:24px"></i>
               </a>
               <a href="/users/<%= current_user.slug %>"> <i class="fas fa-user"></i> <%= current_user.username %></a>
@@ -28,7 +28,7 @@
       </div>
 
       <script>
-        function myFunction() {
+        function responsiveMenu() {
           let x = document.getElementById("myNavMenu");
           if (x.className === "navigation") {
             x.className += " responsive";
